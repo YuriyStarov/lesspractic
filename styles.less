@@ -1,0 +1,70 @@
+@padtop: 40px;
+@widthbase: 80%;
+@heightbase: 15%;
+.bordered {
+    border: 3px black ridge;
+}
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    main {
+        width: @widthbase;
+        height: @heightbase;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .bordered();
+        @media (max-width: 1100px) {
+            width: @widthbase - 10%;
+            height: @heightbase + 10%;
+            flex-wrap: wrap;
+        };
+        @media (max-width: 900px) {
+            width: @widthbase + 5%; 
+            height: @heightbase + 45%;
+        };
+        section {
+            width: @widthbase - 55%;
+            height: @heightbase + 35%;
+            .bordered();
+            font-size: 36px;
+            @media (max-width: 1100px) {
+                width: @widthbase - 35%; 
+                height: @heightbase + 20%
+            };
+            @media (max-width: 900px) {
+                width: @widthbase + 10%; 
+                height: calc(@heightbase + 20% - @padtop); 
+                padding-top: @padtop;
+            };
+        }
+        section::before {
+            content: "text";
+        }
+        .one {
+            background-color: red;
+            color: white;
+        }
+        .two {
+            background-color: orange;
+            text-align: center;
+            color: white;
+        }
+        .three {
+            background-color: yellow;
+            text-align: right;
+            @media (max-width: 1100px) {
+                width: @widthbase + 15%;
+            };
+            @media (max-width: 900px) {
+                width: @widthbase + 10%; 
+                height: @heightbase; 
+                padding-top: @padtop - 30px;
+            };
+        }
+    }
+}
